@@ -1,16 +1,17 @@
 import React from "react"
-// import Container from '../components/container'
 import Layout from '../components/layout'
-import Header from '../components/header'
-import { Link } from "gatsby";
+import { Link } from "gatsby"
+
+const DynamicLink = ({ children, to }) => (
+  <Link to={to}>{children}</Link>
+)
 
 export default () => (
   <Layout>
-    <div style={{ color: 'purple' }}>
-      <Header headerText="Hello Gatsby!"/>
-      <Link to='/about-css-modules/'>css modules</Link>
-      <p>What a world.</p>
-      <img src='https://source.unsplash.com/random/400x200' alt=''/>
-    </div>
+    <h1>Here's what I've been working on</h1>
+    <DynamicLink to='/about-css-modules/'>CSS modules</DynamicLink>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec euismod quam. Donec malesuada bibendum nisl, at auctor lectus semper efficitur. Suspendisse potenti. Donec vulputate sapien tristique ante auctor viverra. Phasellus eleifend sollicitudin odio at maximus. Suspendisse nisi dui, tincidunt ac dolor at, aliquam egestas magna. Pellentesque mollis tincidunt nulla, sed dapibus nulla viverra vel. Proin faucibus felis sit amet imperdiet pellentesque. Nulla vitae ligula et dolor tempus varius sed eget mauris. Vestibulum hendrerit purus ac faucibus bibendum. Vestibulum ac venenatis eros. Morbi consequat metus odio, rutrum efficitur metus efficitur a. Donec scelerisque turpis id tincidunt viverra. Aenean euismod, orci ac hendrerit ultrices, odio dolor feugiat tellus, eu maximus quam neque ac urna.
+    </p>
   </Layout>
 )

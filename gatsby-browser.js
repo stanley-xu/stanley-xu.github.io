@@ -1,9 +1,10 @@
 /**
- * Configure your web settings (?) with this file.
+ * Implement Gatsby browser APIs in this file (requires `export`)
+ * 
+ * You can import global stylesheets here too
  * 
  * This is a special file that Gatsby looks for
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-// traditional styling via global css
-import './src/styles/global.css'
+import './src/styles/global.css' // global stylesheet

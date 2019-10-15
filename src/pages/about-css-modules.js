@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from "../components/header";
-import Container from "../components/container";
+import Container from "../components/container"
 import styles from './about-css-modules.module.css'
 
 console.log(styles);
@@ -18,8 +17,7 @@ const User = props => (
 
 export default () => (
   <Container>
-    <Header headerText='some header'/>
-    <p>CSS modules are cool eh</p>
+    <h1>CSS modules are cool eh</h1>
 
     <User
       username="Jane Doe"

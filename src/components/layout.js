@@ -1,24 +1,46 @@
-import React from 'react'
-import { Link } from "gatsby"
+/**
+ * Main layout component for site pages
+ */
 
-const ListLink = props => (
-  <li style={{ display: 'inline-block', marginRight: '1rem' }}>
-    <Link to={props.to}>{props.children}</Link>
-  </li>
+import React from "react"
+import { Link } from "gatsby"
+import styles from './layout.module.css'
+
+const NavLink = ({ children, to }) => (
+  <Link to={to} className={styles.navLink} activeClassName={styles.activeNavLink}>
+    {children}
+  </Link>
 )
 
+const HomeLink = ({ title }) => (
+  <h1 style={{ margin: 0, display: 'inline-block' }}>
+    <Link to='/'
+      style={{
+        color: 'inherit', fontWeight: 700, marginRight: '1rem', textDecoration: 'none'
+      }}>
+      {title}
+    </Link>
+  </h1>
+)
+
+const Header = ({ title }) => (
+  <header className={styles.header}>
+    <nav className={styles.headerNav}>
+      <HomeLink title={title}/>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/about/">About</NavLink>
+      <NavLink to="/contact/">Contact</NavLink>
+    </nav>
+  </header>
+)
+
+// The name-less elements are React fragments
+//  used so that we don't have to wrap sibling JSX with more `div` or `span`
 export default ({ children }) => (
-  <div style={{ margin: '3rem auto', maxWidth: 650, padding: '0 1rem' }}>
-    <header style={{ marginBottom: '1.5rem' }}>
-      <Link to='/' style={{ textShadow: 'none', backgroundImage: 'none' }}>
-        <h3 style={{ display: 'inline' }}>MySweetSite</h3>
-      </Link>
-      <ul style={{ listStyle: 'none', float: 'right' }}>
-        <ListLink to='/'>Home</ListLink>
-        <ListLink to='/about/'>About</ListLink>
-        <ListLink to='/contact/'>Contact</ListLink>
-      </ul>
-    </header>
-    {children}
-  </div>
+  <>
+    <Header title='Stanley Xu'/>
+    <div className={styles.content}>
+      <main>{children}</main>
+    </div>
+  </>
 )
