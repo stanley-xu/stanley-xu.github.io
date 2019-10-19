@@ -28,8 +28,8 @@ const Header = ({ title }) => (
     <nav className={styles.headerNav}>
       <HomeLink title={title}/>
       <NavLink to="/">Home</NavLink>
+      <NavLink to="/blog/">Blog</NavLink>
       <NavLink to="/about/">About</NavLink>
-      <NavLink to="/contact/">Contact</NavLink>
     </nav>
   </header>
 )
