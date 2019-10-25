@@ -12,7 +12,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Stanley Xu",
+    author: "Stanley Xu",
   },
   plugins: [
     'gatsby-plugin-emotion',

@@ -13,11 +13,8 @@ const NavLink = ({ children, to }) => (
 )
 
 const HomeLink = ({ title }) => (
-  <h1 style={{ margin: 0, display: 'inline-block' }}>
-    <Link to='/'
-      style={{
-        color: 'inherit', fontWeight: 700, marginRight: '1rem', textDecoration: 'none'
-      }}>
+  <h1 className={styles.home}>
+    <Link to='/' className={styles.homeLink}>
       {title}
     </Link>
   </h1>
@@ -27,7 +24,6 @@ const Header = ({ title }) => (
   <header className={styles.header}>
     <nav className={styles.headerNav}>
       <HomeLink title={title}/>
-      <NavLink to="/">Home</NavLink>
       <NavLink to="/blog/">Blog</NavLink>
       <NavLink to="/about/">About</NavLink>
     </nav>
