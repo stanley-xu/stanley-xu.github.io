@@ -1,0 +1,36 @@
+.link {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.titlelink {
+  composes: link;
+  margin: 0;
+  margin-right: 1.5rem;
+}
+
+/*
+I haven't found a way to **all** of the following easily:
+1. align the **text** of the nav bar like siblings with `inline-block`
+2. have the border-bottom **always** be at the bottom edge of the header
+3. have the border-bottom (`.activelink`) occur at the same level for `TitleLink` and SubNavLink`
+  (the header's height changes slightly)
+
+Flexbox can be used to solve (2) and `align-items: baseline` solves (1) but (3) seems to never be solveable
+- Even when Flexbox tries to equalize the heights, (3) is never fixed
+
+Unless we use manual alignment via padding (found 5px to work)
+- I'm sticking to Flexbox anyway (w/ manual padding, sticking to `inline-block`s actually works)
+*/
+.sublink {
+  composes: link;
+  margin: 0 0.5rem;
+  margin-left: 0;
+  padding: 0 0.5rem;
+  padding-bottom: 5px;
+}
+
+.activelink {
+  border-bottom: 2px solid black;
+}

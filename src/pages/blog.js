@@ -7,10 +7,7 @@ import { rhythm } from '../utils/typography'
 
 const PostTitle = styled.h3`margin-bottom: ${rhythm(1/4)}`
 
-const PostMetadata = styled.span`
-  color: #bbb;
-  font-size: medium;
-`
+const PostMetadata = styled.span`font-size: small;`
 
 const Preview = ({ node }) => (
   <Link to={node.fields.slug} css={css`

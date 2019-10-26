@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
+        name: `src`, // todo: should specifically scan some sort of 'md' folder--which may require other config changes
         path: `${__dirname}/src/`,
       },
     },
