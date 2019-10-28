@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`, // todo: should specifically scan some sort of 'md' folder--which may require other config changes
-        path: `${__dirname}/src/`,
+        name: `blog-markdown`,
+        path: `${__dirname}/markdown/blog`,
       },
     },
     {
