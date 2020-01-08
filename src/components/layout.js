@@ -3,17 +3,15 @@
  */
 
 import React from "react"
-import { TitleNavbar } from './navbar'
+import Navbar from './navbar'
 import styles from './layout.module.css'
 
 const Header = () => (
   <header className={styles.header}>
-    <TitleNavbar title={'Stanley Xu'} styleName={styles.nav}/>
+    <Navbar title={'Stanley Xu'}/>
   </header>
 )
 
-// The name-less elements are React fragments
-//  used so that we don't have to wrap sibling JSX with more `div` or `span`
 export default ({ children }) => (
   <>
     <Header/>

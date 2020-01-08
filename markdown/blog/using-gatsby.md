@@ -5,14 +5,43 @@ date: "2019-10-26"
 
 This site was built with Gatsby.
 
-I finally decided to take the plunge into "modern web development" after hearing good things about Gatsby and static site generators.
-I've also wanted to build my portfolio website and deploy it onto Github Pages--which only serves static resources.
+I finally decided to take the plunge into modern web development after hearing good things about Gatsby.
+I've also wanted to build a portfolio website and deploy it onto Github Pages.
+Since Gatsby produces static sites, it'd be a perfect choice!
 
-And it has been a *wild* rabbit hole...
+Throughout this process, I've learned a few interesting things.
+
+# What Gatsby *really* is
+
+At surface level, Gatsby is a *static-site generator*.
+But it actually something more interesting: it generates static sites by using:
+1. Server-side rendering (SSR) at **build time**
+2. Route-based code splitting
+3. High performance browser APIs
+
+(You could call it a JAM stack)
+ 
+Those three techniques help produce great performing sites.
+
+This [post](https://www.gatsbyjs.org/blog/2019-04-02-behind-the-scenes-what-makes-gatsby-great/) explains exactly why and how, but here's my abridged version.
+
+# What's SSR anyway?
+
+## Client vs Server side rendering
+
+## Build time SSR?!
+
+# Routing
+
+## Webpack and JS bundles
+
+# Modern browser API
+
+<!-- things i learned -->
+
+# Gatsby tutorial
 
 <!-- Content about tutorial -->
-
-Having gone through Gatsby's tutorial, I've setup a JAM stack for blogging and markdown rendering purposes mostly.
 
 Here are some useful links about Gatsby:
 - [Motivation](https://www.gatsbyjs.org/blog/2019-04-02-behind-the-scenes-what-makes-gatsby-great/)

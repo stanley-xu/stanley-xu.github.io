@@ -3,8 +3,6 @@ import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
 import { NavLink } from './navbar'
 
-// todo: it'd be nice if content were centered with dynamically sized left/right margins
-//  rhythm gives fixed offsets
 const Center = styled.div`
   display: flex;
   justify-content: center;

@@ -28,10 +28,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 // Calls `createPage` to build pages using: a path, component/template, and context
-// `context` is an object passed into the page as GraphQL args and as `pageContext`
 exports.createPages = async ({ graphql, actions }) => {
   const slugResults = await graphql(`
-    query {
+    {
       allMarkdownRemark {
         edges {
           node {
@@ -43,8 +42,10 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }  
   `)
-
+    
   const { createPage } = actions;
+
+  // `context` is an object passed into the page as GraphQL args and as `pageContext`
   slugResults.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
