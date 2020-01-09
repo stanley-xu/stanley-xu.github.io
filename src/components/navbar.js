@@ -17,17 +17,17 @@ const SubNavLink = ({ children, to }) => (
   <NavLink to={to} configStyle={styles.sublink}>{children}</NavLink>
 )
 
-const TitleLink = ({ title }) => (
+const TitleLink = ({ children, to }) => (
   <h1 style={{ margin: 0 }}>
-    <NavLink to='/' configStyle={styles.titlelink}>{title}</NavLink>
+    <NavLink to={to} configStyle={styles.titlelink}>{children}</NavLink>
   </h1>
 )
 
 const Navbar = ({ title }) => (
   <nav className={styles.nav}>
-    <TitleLink title={title}/>
+    <TitleLink to='/'>{title}</TitleLink>
     <SubNavLink to="/blog/">Blog</SubNavLink>
-    <SubNavLink to="/about/">About</SubNavLink>
+    <SubNavLink to="/projects/">Projects</SubNavLink>
   </nav>
 )
 
