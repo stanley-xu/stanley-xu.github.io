@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{"16l3":function(n,t,o){"use strict";o.r(t);var c=o("qKvR"),b=(o("q1tI"),o("Bl7J"));t.default=function(){return Object(c.b)(b.a,null,Object(c.b)("p",null,Object(c.b)(Emoji,{symbol:"🚧",label:"construction"}),"Under construction!",Object(c.b)(Emoji,{symbol:"🚧",label:"construction"})))}}}]);
+//# sourceMappingURL=component---src-pages-projects-js-d8001c2390ed2ab23378.js.map
