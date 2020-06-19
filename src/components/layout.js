@@ -3,8 +3,8 @@
  */
 
 import React from "react"
-import Navbar from './navbar'
-import styles from './layout.module.css'
+import Navbar from './Navbar'
+import styles from './Layout.module.css'
 
 const Header = () => (
   <header className={styles.header}>
