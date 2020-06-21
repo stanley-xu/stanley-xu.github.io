@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{"3XHS":function(t,u,e){"use strict";e.r(u),e.d(u,"query",(function(){return l}));var n=e("qKvR"),a=(e("q1tI"),e("Bl7J"));u.default=function(t){t.data;return Object(n.b)(a.a,null,Object(n.b)("div",null,Object(n.b)("h1",null,"I'd love to talk!"),Object(n.b)("p",null,Object(n.b)("a",{href:"mailto:tqsxu@uwaterloo.ca"},"tqsxu@uwaterloo.ca"))))};var l="588131193"}}]);
-//# sourceMappingURL=component---src-pages-about-js-44a2ed376aaab6fcb7cc.js.map
