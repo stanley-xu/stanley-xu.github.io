@@ -7,7 +7,7 @@ import { rhythm } from '../utils/typography'
 
 export const query = graphql`
   query allMarkdownBlogs {
-    allMarkdownRemark(filter: { fields: { mdType: { eq: "blogs" } } }) {
+    allMdx(filter: { fields: { mdType: { eq: "blogs" } } }) {
       totalCount
       edges {
         node {
@@ -19,7 +19,6 @@ export const query = graphql`
             date(formatString: "MMM DD")
             title
           }
-          html
           timeToRead
           excerpt
         }
@@ -56,7 +55,7 @@ const Preview = ({ node }) => (
 )
 
 export default ({ data }) => {
-  const { totalCount, edges } = data.allMarkdownRemark
+  const { totalCount, edges } = data.allMdx
 
   return (
     <Layout>

@@ -14,7 +14,7 @@ const paths = require('path')
 const { createFilePath } = require('gatsby-source-filesystem') // handy fn for determining slug
 
 function createMarkdownNodes(node, getNode, { createNodeField }) {
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode })
     const rootDir = slug
       .split('/')
@@ -40,7 +40,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 async function createMarkdownPages(graphql, { createPage }) {
   const results = await graphql(`
     query allMarkdownSlugs {
-      allMarkdownRemark {
+      allMdx {
         nodes {
           fields {
             slug
@@ -51,7 +51,7 @@ async function createMarkdownPages(graphql, { createPage }) {
   `)
 
   // `context` is an object passed into the page as GraphQL args and as `pageContext`
-  results.data.allMarkdownRemark.nodes.forEach(({ fields: { slug } }) => {
+  results.data.allMdx.nodes.forEach(({ fields: { slug } }) => {
     createPage({
       path: slug,
       component: paths.resolve(`./src/templates/Post.js`),

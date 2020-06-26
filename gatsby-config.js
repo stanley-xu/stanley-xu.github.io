@@ -16,7 +16,13 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-emotion',
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.md', '.mdx'],
+        gatsbyRemarkPlugins: ['gatsby-remark-autolink-headers'],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

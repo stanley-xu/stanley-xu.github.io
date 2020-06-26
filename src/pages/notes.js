@@ -4,25 +4,21 @@ import { graphql, Link } from 'gatsby'
 // import { css } from '@emotion/core'
 
 export const query = graphql`
-  query markdownNotes {
-    allFile(filter: {relativeDirectory: {regex: "/notes/"}}) {
+  query allMarkdownNotes {
+    allMdx(filter: { fields: { mdType: { eq: "notes" } } }) {
       edges {
         node {
-          relativeDirectory
-          childMarkdownRemark {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMM DD")
-              title
-            }
-            html
-            timeToRead
-            excerpt
-            tableOfContents
+          id
+          fields {
+            slug
           }
+          frontmatter {
+            date(formatString: "MMM DD")
+            title
+          }
+          timeToRead
+          excerpt
+          tableOfContents
         }
       }
     }
@@ -50,20 +46,19 @@ export const query = graphql`
 // )
 
 export default ({ data }) => {
-  console.log(data);
-  
-  const mdEdges = data.allFile.edges
+  console.log(data)
+
+  const mdEdges = data.allMdx.edges
 
   return (
     <Layout>
-      {
-        mdEdges.map(({ node }) => {
-          const mdNode = node.childMarkdownRemark
-          return <Link key={mdNode.id} to={mdNode.fields.slug}>
-            {mdNode.fields.slug}
+      {mdEdges.map(({ node }) => {
+        return (
+          <Link key={node.id} to={node.fields.slug}>
+            {node.fields.slug}' '
           </Link>
-        })
-      }
+        )
+      })}
     </Layout>
   )
 }
