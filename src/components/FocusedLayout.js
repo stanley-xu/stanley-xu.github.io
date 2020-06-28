@@ -22,10 +22,10 @@ export const Center = styled.div`
   padding-top: 0;
 `
 
-export const Layout = (props) => (
+export const Layout = props => (
   <Center>
     <div>
-      <Header prevLink={props.prevLink ?? '/'}/>
+      <Header prevLink={props.prevLink} />
       {props.children}
     </div>
   </Center>

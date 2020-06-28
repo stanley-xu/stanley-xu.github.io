@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Layout } from '../components/FocusedLayout'
 import { SplitPane } from '../components/SplitPane'
-import { SideBar } from '../components/SideBar'
+import { TableOfContents } from '../components/TableOfContents'
 
 export const query = graphql`
   query markdownContent($slug: String!) {
@@ -33,8 +33,12 @@ export default ({ data }) => {
     </Layout>
   )
 
-  const sidebarMarkup = undefined
-  //   fields.mdType === 'notes' ? <SideBar html={tableOfContents} /> : undefined
+  const sidebarMarkup =
+    fields.mdType === 'notes' ? (
+      <TableOfContents toc={tableOfContents} />
+    ) : (
+      undefined
+    )
 
   return (
     <>
