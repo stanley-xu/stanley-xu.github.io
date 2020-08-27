@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
+import styled from '@emotion/styled'
 // import { css } from '@emotion/core'
 
 export const query = graphql`
@@ -11,6 +12,7 @@ export const query = graphql`
           id
           fields {
             slug
+            mdSubType
           }
           frontmatter {
             date(formatString: "MMM DD")
@@ -45,20 +47,36 @@ export const query = graphql`
 //   </Link>
 // )
 
-export default ({ data }) => {
-  console.log(data)
+const Grid = styled.div`
+  display: grid;
+`
 
-  const mdEdges = data.allMdx.edges
+function groupNotes(mdEdges) {
+  let notes = {}
+
+  mdEdges.forEach(({ node }) => {
+    const noteType = node.fields.mdSubType
+
+    if (notes.hasOwnProperty(noteType)) {
+      notes[noteType].push(node)
+    } else {
+      notes[noteType] = [node]
+    }
+  })
+
+  return notes
+}
+
+export default ({ data }) => {
+  const notes = groupNotes(data.allMdx.edges)
 
   return (
     <Layout>
-      {mdEdges.map(({ node }) => {
-        return (
-          <Link key={node.id} to={node.fields.slug}>
-            {node.fields.slug}' '
-          </Link>
-        )
-      })}
+      <Grid>
+        {Object.keys(notes).map(subject => {
+          return <div>{subject}</div>
+        })}
+      </Grid>
     </Layout>
   )
 }

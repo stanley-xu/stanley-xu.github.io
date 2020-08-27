@@ -16,17 +16,22 @@ const { createFilePath } = require('gatsby-source-filesystem') // handy fn for d
 function createMarkdownNodes(node, getNode, { createNodeField }) {
   if (node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode })
-    const rootDir = slug
-      .split('/')
-      .slice(0, 2) // first 2 items are ' ' and '/'
+    const slugParts = slug.split('/')
+    const rootDir = slugParts
+      .slice(0, 2) // first 2 items are ' ' and '<root dir>'
       .join('/')
     const mdType = rootDir.slice(1) // trim leading '/'
 
-    const fieldArgs = [
+    let fieldArgs = [
       { node, name: `slug`, value: slug },
       { node, name: `rootDir`, value: rootDir },
       { node, name: `mdType`, value: mdType },
     ]
+
+    if (mdType === 'notes' && slugParts.length >= 3) {
+      const mdSubType = slugParts[2]
+      fieldArgs.push({ node, name: `mdSubType`, value: mdSubType })
+    }
 
     fieldArgs.forEach(arg => createNodeField(arg))
   }
