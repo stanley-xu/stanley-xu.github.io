@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  /* Blocks */
+  --light: 0% 15%;
+  --alpha-25: 25%;
+
+  /* Measurements */
+  --spacing: 16px;
+
+  /* Palette */
+  --black: hsl(0, 0%, 25%);
+  --white-1: hsl(205.71, 13.73%, 90%);
+  --white-2: hsl(210, 13.04%, 90.98%);
+  --white-3: hsl(204, 12.2%, 91.96%);
+  --white-4: hsl(216, 14.29%, 93.14%);
+  --white-5: hsl(210, 13.33%, 94.12%);
+  --white-6: hsl(200, 14.29%, 95.88%);
+
+  --primary: hsl(207.06, 100%, 70%, 1);
+
+  /* https://www.fffuel.co/pppalette/ */
+  --primary-tint-1: hsl(209, 100%, 76.47%);
+  --primary-tint-2: hsl(210.65, 100%, 81.96%);
+  --primary-tint-3: hsl(211.34, 100%, 86.86%);
+  --primary-tint-4: hsl(212.73, 100%, 91.37%);
+  --primary-tint-5: hsl(212.73, 100%, 97.69%);
+  --primary-shade-1: hsl(205.13, 69.57%, 54.9%);
+  --primary-shade-2: hsl(200.65, 100%, 36.47%);
+  --primary-shade-3: hsl(203.92, 100%, 30%);
+  --primary-shade-4: hsl(208.26, 100%, 23.73%);
+  --primary-shade-5: hsl(214.95, 100%, 17.84%);
+
+  --palette-light-primary-1: var(--primary);
+  --palette-light-primary-2: hsl(207.07, 100%, 83.92%);
+  --palette-light-primary-3: hsl(207.39, 100%, 90.98%);
+  --palette-light-secondary-1: hsl(226.96, 100%, 90.98%);
+  --palette-light-secondary-2: hsl(226.83, 100%, 83.92%);
+  --palette-light-secondary-3: hsl(227.06, 100%, 70%);
+
+  --palette-dark-primary-1: hsl(207.06, 100%, 40%);
+  --palette-dark-primary-2: hsl(207.06, 100%, 70%);
+  --palette-dark-primary-3: hsl(207.07, 100%, 83.92%);
+  --palette-dark-secondary-1: hsl(234.15, 100%, 83.92%);
+  --palette-dark-secondary-2: hsl(234.12, 100%, 70%);
+  --palette-dark-secondary-3: hsl(234.12, 100%, 40%);
+
+  /* Default to light mode */
+  --background: var(--primary-tint-5);
+  --foreground: var(--primary-shade-4);
+  --primary-1: var(--palette-dark-primary-1);
+  --primary-2: var(--palette-dark-primary-2);
+  --primary-3: var(--palette-dark-primary-3);
+  --secondary-1: var(--palette-dark-secondary-1);
+  --secondary-2: var(--palette-dark-secondary-2);
+  --secondary-3: var(--palette-dark-secondary-3);
+  --accent: var(--secondary-3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--primary-shade-5);
+    --foreground: var(--primary-tint-5);
+    --primary-1: var(--palette-light-primary-1);
+    --primary-2: var(--palette-light-primary-2);
+    --primary-3: var(--palette-light-primary-3);
+    --secondary-1: var(--palette-light-secondary-1);
+    --secondary-2: var(--palette-light-secondary-2);
+    --secondary-3: var(--palette-light-secondary-3);
+    --accent: var(--secondary-1);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+strong {
+  color: var(--accent);
+}

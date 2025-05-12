@@ -1,0 +1,16 @@
+.header {
+  margin: 0 auto;
+  padding-bottom: 0.125rem;
+  border-bottom: 1px solid var(--accent);
+  margin-bottom: 1rem;
+}
+
+.breadcrumb {
+  /* display: flex;
+  gap: var(--spacing-2); */
+}
+
+.separator {
+  margin: 0 var(--spacing-2);
+  color: var(--palette-primary-1);
+}
