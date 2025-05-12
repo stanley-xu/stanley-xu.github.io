@@ -1,4 +1,4 @@
-import { getPostBySlug } from "@/lib/posts";
+import { getPostBySlug } from "~/lib/posts";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { slug: string } }) {

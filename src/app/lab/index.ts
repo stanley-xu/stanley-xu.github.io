@@ -1,1 +1,1 @@
-export { Art as FeaturedLab } from "./art";
+export { FeaturedArt as FeaturedLab } from "./art";

@@ -1,5 +1,5 @@
-import { FeaturedLab } from "@/lab";
-import { Spacer } from "@/ui/spacer";
+import { FeaturedLab } from "~/lab";
+import { Spacer } from "~/ui/spacer";
 
 export default function Home() {
   return (
