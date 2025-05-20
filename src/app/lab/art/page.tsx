@@ -1,13 +1,14 @@
 import Page1 from "./1/page";
 import styles from "./art.module.css";
 
-export function ArtPage({ pageNumber }: { pageNumber: number }) {
+export function ArtPage({ stylesProp }: { stylesProp: string }) {
+  console.log({stylesProp})
   const boxes = Array(16)
     .fill(null)
     .map((_, idx) => (
       <div
         key={idx}
-        className={`${styles.box} ${styles[`style-${pageNumber}`]}`}
+        className={`${styles.box} ${stylesProp}`}
         style={{
           ["--index" as string]: idx + 1,
         }}

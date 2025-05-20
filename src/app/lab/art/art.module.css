@@ -8,29 +8,8 @@
   height: var(--box-size);
 }
 
-.box.style-0 {
-  /*
-    Here's a quick example, to get you started!
-    We use “--index”, a number from 1 to 16,
-    to derive the “hue” for each square.
-    
-    If you're not sure where to start,
-    try tweaking these numbers!
-    
-    One last tip: using a gradient instead
-    of a solid color opens lots of exciting`
-    possibilities!
-  */
+.style0 {
   background: hsl(calc(var(--index) * -7deg) 100% 50%);
-}
-
-.box.style-1 {
-  background: linear-gradient(
-    calc(135deg - var(--index) * 33deg),
-    hsl(calc(275deg + var(--index) * -1deg) 100% 50%),
-    hsl(calc(340deg + var(--index) * -10deg) 100% 50%)
-  );
-  border-radius: calc(var(--index) * 3%);
 }
 
 .row {
