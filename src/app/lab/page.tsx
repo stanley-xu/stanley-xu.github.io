@@ -1,9 +1,16 @@
-import Link from "next/link";
-import { FeaturedArt } from "./art";
+import { LabCard } from "./components";
+import Art from "./art/page";
+
+// Lab routes with their components
+const LAB_ROUTES = [
+  {
+    path: "art",
+    title: "CSS Generative Art",
+    component: Art,
+  },
+];
 
 export default function LabPage() {
-  const labs = [FeaturedArt, Dummy, Dummy, Dummy, Dummy];
-
   return (
     <div
       style={{
@@ -14,42 +21,15 @@ export default function LabPage() {
         height: "100%",
       }}
     >
-      {labs.map((lab, idx) => (
-        <LabCard key={`${idx}--${lab.href}`} title={lab.title} href={lab.href}>
-          {lab()}
+      {LAB_ROUTES.map((route) => (
+        <LabCard
+          key={route.path}
+          title={route.title}
+          href={`/lab/${route.path}`}
+        >
+          <route.component />
         </LabCard>
       ))}
     </div>
   );
 }
-
-function LabCard({
-  title,
-  href,
-  children,
-}: {
-  title: string;
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      style={{
-        flex: "1 1 400px",
-        minHeight: "400px",
-      }}
-    >
-      {children}
-      <p>{title}</p>
-    </Link>
-  );
-}
-
-const Dummy = () => (
-  <div
-    style={{ background: "var(--white-3)", width: "100%", height: "100%" }}
-  ></div>
-);
-Dummy.href = "/404";
-Dummy.title = "Test";
