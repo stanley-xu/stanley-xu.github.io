@@ -1,7 +1,6 @@
 import { LabCard } from "./components";
 import Art from "./art/page";
 
-// Lab routes with their components
 const LAB_ROUTES = [
   {
     path: "art",
@@ -18,7 +17,6 @@ export default function LabPage() {
         flexWrap: "wrap",
         gap: "var(--spacing)",
         justifyContent: "center",
-        height: "100%",
       }}
     >
       {LAB_ROUTES.map((route) => (

@@ -1,0 +1,22 @@
+.labcard {
+  --background: hsl(0, 0%, 100%);
+  flex: 1 1 400px;
+  background: var(--background);
+  padding: var(--spacing);
+  box-shadow: hsl(0, 0%, 80%) 3px 3px;
+}
+
+.labcard:hover {
+  box-shadow: 
+    inset 1px 1px 2px hsla(0, 0%, 70%, 0.8),
+    hsl(0, 0%, 85%) 1px 1px 2px;
+}
+
+.title {
+  padding-top: var(--spacing);
+  color: var(--black);
+}
+
+.title strong {
+  color: inherit;
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import styles from "./LabCard.module.css";
 
 export interface LabProps {
   title: string;
@@ -9,15 +10,11 @@ export interface LabProps {
 
 export function LabCard({ title, href, children }: LabProps) {
   return (
-    <Link
-      href={href}
-      style={{
-        flex: "1 1 400px",
-        minHeight: "400px",
-      }}
-    >
+    <Link href={href} className={styles.labcard}>
       {children}
-      <p>{title}</p>
+      <div className={styles.title}>
+        <strong>{title}</strong>
+      </div>
     </Link>
   );
 }

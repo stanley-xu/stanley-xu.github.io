@@ -14,16 +14,7 @@ export default function Art() {
     ));
 
   return (
-    <section
-      style={{
-        background: "white",
-        padding: "48px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: "var(--spacing)",
-      }}
-    >
+    <section style={{ backgroundColor: "white" }}>
       <div className={styles.row}>{boxes}</div>
     </section>
   );
