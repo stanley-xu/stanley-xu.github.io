@@ -1,5 +1,5 @@
 import Image from "next/image";
-import profilePic from "./animepfp.png";
+import profilePic from "./linkedin-4-5.jpg";
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
         style={{
           padding: "32px 0",
           marginBottom: "64px",
-          borderBottom: "4px solid hsl(0deg, 0%, 20%)",
+          borderBottom: "2px solid hsl(0deg, 0%, 20%)",
         }}
       >
         <div
@@ -33,8 +33,7 @@ export default function Page() {
           padding: "0 128px",
         }}
       >
-        <h3>Hi, I'm Stanley.</h3>
-        <p>I'm a UW CS grad interested in building cool shit.</p>
+        <p>🚧 </p>
       </main>
     </>
   );
