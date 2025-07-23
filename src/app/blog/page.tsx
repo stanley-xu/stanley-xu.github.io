@@ -1,6 +1,6 @@
-import { getPosts, createPost } from "~/lib/posts";
-import { Form } from "~/ui/form";
-import { Posts } from "~/ui/post";
+import { getPosts, createPost } from "@/lib/posts";
+import { Form } from "@/ui/form";
+import { Posts } from "@/ui/post";
 import { Suspense } from "react";
 
 export default async function Page() {

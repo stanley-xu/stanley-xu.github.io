@@ -1,15 +1,24 @@
-import { getPostBySlug } from "~/lib/posts";
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
 
-  console.log({ slug, search: slug, found: post });
-
-  if (!post) {
+  try {
+    const { default: Post } = await import(`@/content/${slug}.md`);
+    return <Post />;
+  } catch (e) {
+    console.log(e);
     notFound();
   }
-
-  return <div>{post.title}</div>;
 }
+
+export function generateStaticParams() {
+  return [{ slug: "about" }];
+}
+
+// This forces any slug not matching the ones from `generateStaticParams` to 404
+// export const dynamicParams = false;

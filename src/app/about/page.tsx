@@ -1,5 +1,7 @@
 import Image from "next/image";
 import profilePic from "./linkedin-4-5.jpg";
+import About from "@/content/about.md";
+import { TextLayout } from "@/lib/TextLayout";
 
 export default function Page() {
   return (
@@ -28,12 +30,10 @@ export default function Page() {
           />
         </div>
       </header>
-      <main
-        style={{
-          padding: "0 128px",
-        }}
-      >
-        <p>🚧 </p>
+      <main>
+        <TextLayout>
+          <About />
+        </TextLayout>
       </main>
     </>
   );

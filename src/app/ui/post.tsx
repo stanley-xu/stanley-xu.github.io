@@ -1,6 +1,6 @@
 "use client";
 
-import type { Post } from "~/lib/posts";
+import type { Post } from "@/lib/posts";
 import Link from "next/link";
 import { use } from "react";
 

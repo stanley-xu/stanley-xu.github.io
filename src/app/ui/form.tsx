@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { createError } from "~/lib/posts";
+import { createError } from "@/lib/posts";
 
 const initialState = {
   message: "",
