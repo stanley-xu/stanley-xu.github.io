@@ -1,4 +1,4 @@
-:root {
+.container {
   --box-size: 75px;
   box-sizing: border-box;
 }

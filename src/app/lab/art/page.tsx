@@ -14,7 +14,7 @@ export default function Art() {
     ));
 
   return (
-    <section style={{ backgroundColor: "white" }}>
+    <section className={styles.container} style={{ backgroundColor: "white" }}>
       <div className={styles.row}>{boxes}</div>
     </section>
   );
