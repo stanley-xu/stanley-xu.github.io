@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   // For gh-pages deployment
+  images: {
+    unoptimized: true,
+  },
   output: 'export',
   basePath: process.env.PAGES_BASE_PATH,
 };
