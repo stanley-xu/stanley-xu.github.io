@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Children } from "react";
 import { Row } from "../Row";
+import { Breadcrumb } from "../Breadcrumb";
 
 import styles from "./Header.module.css";
 
@@ -15,21 +15,5 @@ export default function Header() {
         </Breadcrumb>
       </Row>
     </header>
-  );
-}
-
-function Breadcrumb({ children }: { children: React.ReactNode }) {
-  // Appeasing TS
-  const childrenArray = Children.toArray(children);
-
-  return (
-    <section className={styles.breadcrumb}>
-      {childrenArray.map((child, idx) => (
-        <span key={idx}>
-          {idx > 0 ? <span className={styles.separator}>/</span> : null}
-          {child}
-        </span>
-      ))}
-    </section>
   );
 }

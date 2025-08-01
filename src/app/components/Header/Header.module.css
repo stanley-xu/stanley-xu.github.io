@@ -4,13 +4,3 @@
   border-bottom: 1px solid var(--accent);
   margin-bottom: 1rem;
 }
-
-.breadcrumb {
-  /* display: flex;
-  gap: var(--spacing-2); */
-}
-
-.separator {
-  margin: 0 var(--spacing-tight);
-  color: var(--palette-primary-1);
-}
