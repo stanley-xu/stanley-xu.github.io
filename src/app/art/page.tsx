@@ -22,8 +22,7 @@ export default function Page() {
           <Image
             src={profilePic}
             alt="Picture of the author"
-            width={500} // automatically provided
-            height={500} // automatically provided
+            width={300} // automatically provided
             blurDataURL="data:..." // automatically provided
             placeholder="blur" // Optional blur-up while loading
           />

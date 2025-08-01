@@ -1,6 +1,6 @@
 .header {
   margin: 0 auto;
-  padding-bottom: 0.125rem;
+  padding-bottom: var(--spacing-tight);
   border-bottom: 1px solid var(--accent);
   margin-bottom: 1rem;
 }
