@@ -1,6 +1,6 @@
 import Image from "next/image";
 import profilePic from "./avatar-800x800.jpeg";
-import { TextLayout } from "@/lib/TextLayout";
+import { TextLayout } from "@/components/TextLayout";
 import Content from "@/content/about-art.md";
 
 export default function Page() {

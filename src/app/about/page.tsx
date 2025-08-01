@@ -1,7 +1,7 @@
 import Image from "next/image";
 import profilePic from "./linkedin-4-5.jpg";
 import About from "@/content/about.md";
-import { TextLayout } from "@/lib/TextLayout";
+import { TextLayout } from "@/components/TextLayout";
 
 export default function Page() {
   return (

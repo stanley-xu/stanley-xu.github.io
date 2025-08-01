@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Children } from "react";
-import { Row } from "../row";
+import { Row } from "../Row";
 
 import styles from "./Header.module.css";
 
