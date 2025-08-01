@@ -22,7 +22,7 @@ export default function Page() {
           <Image
             src={profilePic}
             alt="Picture of the author"
-            className="w-16"
+            style={{ width: '4rem', height: '4rem' }}
             width={500} // automatically provided
             height={500} // automatically provided
             blurDataURL="data:..." // automatically provided
