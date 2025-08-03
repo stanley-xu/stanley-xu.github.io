@@ -2,11 +2,13 @@
   text-decoration: none;
 }
 
+.link:hover {
+  font-weight: bold;
+}
+
 .active {
   font-weight: bolder;
-  text-decoration: underline;
-  text-underline-offset: calc(1rem / 4);
-  text-decoration-color: var(--primary-1);
+  color: var(--accent);
 }
 
 .separator {
