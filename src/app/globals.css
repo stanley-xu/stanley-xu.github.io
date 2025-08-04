@@ -34,6 +34,21 @@
   --secondary-shade-3: hsl(234.12, 100%, 40%);
 }
 
+:root[data-theme='light'] {
+  --primary-1: var(--primary-shade-1);
+  --primary-2: var(--primary-shade-2);
+  --primary-3: var(--primary-shade-3);
+  --secondary-1: var(--secondary-shade-1);
+  --secondary-2: var(--secondary-shade-2);
+  --secondary-3: var(--secondary-shade-3);
+
+  --background: var(--white);
+  --text: var(--primary-shade-4);
+  --shadow: var(--black);
+  --surface: var(--primary-tint-5);
+  --accent: var(--primary-3);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --primary-1: var(--primary-shade-1);
@@ -49,6 +64,22 @@
     --surface: var(--primary-tint-5);
     --accent: var(--primary-3);
   }
+}
+
+:root[data-theme='dark'] {
+  --primary-1: var(--primary-tint-1);
+  --primary-2: var(--primary-tint-2);
+  --primary-3: var(--primary-tint-3);
+  --secondary-1: var(--secondary-tint-1);
+  --secondary-2: var(--secondary-tint-2);
+  --secondary-3: var(--secondary-tint-3);
+  
+  --background: var(--primary-shade-4);
+  --text: var(--primary-tint-5);
+  --shadow: var(--primary-shade-5);
+  --surface: var(--primary-shade-3);
+  /* Need a lighter primary than primary-tint-3 */
+  --accent: var(--primary-tint-4); 
 }
 
 @media (prefers-color-scheme: dark) {
@@ -75,9 +106,15 @@ body {
 }
 
 body {
+  font-family: var(--font-geist-mono), Arial, Helvetica, sans-serif;
   background: var(--background);
   color: var(--text);
-  font-family: var(--font-geist-mono), Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: var(--spacing-tight) var(--spacing);
+
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
 
 a,

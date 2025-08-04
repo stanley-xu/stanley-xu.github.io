@@ -1,0 +1,1 @@
+- Let me handle the implementation and coding. This project is meant to be an environment for me to practice technologies so don't generate fully working code in detail. Defer to agents to provide appropriate direction for me if needed.

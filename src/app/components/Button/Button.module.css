@@ -1,0 +1,17 @@
+.Button {
+  padding: 0;
+  border: 0;
+}
+
+.IconButton {
+  min-width: 44px;
+  min-height: 44px;
+
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.IconButton:hover {
+  background-color: var(--surface);
+  cursor: pointer;
+}
