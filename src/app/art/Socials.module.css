@@ -1,0 +1,9 @@
+.IconRow {
+  border-radius: 4px 4px;
+  padding: var(--spacing-tight);
+}
+
+.IconRow:hover {
+  background-color: var(--surface);
+  filter: brightness(0.95);
+}

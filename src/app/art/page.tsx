@@ -4,6 +4,7 @@ import { TextLayout } from "@/components/TextLayout";
 import Content from "@/content/about-art.md";
 import { ThreeDCard } from "@/components/Card";
 import { Row } from "@/components/Row/Row";
+import { Socials } from "./Socials";
 
 export default function Page() {
   return (
@@ -17,7 +18,7 @@ export default function Page() {
             blurDataURL="data:..." // automatically provided
             placeholder="blur" // Optional blur-up while loading
           />
-          <p>TestTestTestTestTestTest</p>
+          <Socials />
         </Row>
       </ThreeDCard>
       <main>
