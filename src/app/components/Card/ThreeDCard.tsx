@@ -10,31 +10,14 @@ function useMouseMove<T extends HTMLElement>(
 ) {
   const ref = useRef<T>(null);
 
-  const onMouseMove = (e: SyntheticEvent) => {
+  const handleMouseMove = (e: SyntheticEvent) => {
     if (!ref.current) return;
 
     return cb(e, ref as RefObject<T>);
   };
 
-  return { ref, onMouseMove };
+  return { ref, handleMouseMove };
 }
-
-// function MouseSpotlight({ children }) {
-//   const { ref, onMouseMove } = useMouseMove<HTMLDivElement>((ev, ref) => {
-//     const { clientX: x, clientY: y } = ev.nativeEvent as MouseEvent;
-
-//     ref.current.style.top = `${y}px`;
-//     ref.current.style.left = `${x}px`;
-//   });
-
-//   return (
-//     <div onMouseMove={onMouseMove}>
-//       <div className={`${styles.mousecontainer}`} ref={ref} />
-//       <div className={styles.overlay} />
-//       <div className={styles["content-wrapper"]}>{children}</div>
-//     </div>
-//   );
-// }
 
 const MAX_HORIZONTAL_ROTATE_DEGS = 20;
 const MAX_VERTICAL_ROTATE_DEGS = 5;
@@ -42,7 +25,7 @@ const MAX_SHADOW_PX = 10;
 const MAX_SHADOW_BLUR_PX = 30;
 
 export function ThreeDCard({ children }: CardProps) {
-  const { ref, onMouseMove } = useMouseMove<HTMLDivElement>((ev, ref) => {
+  const { ref, handleMouseMove } = useMouseMove<HTMLDivElement>((ev, ref) => {
     const rect = ev.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -53,18 +36,21 @@ export function ThreeDCard({ children }: CardProps) {
     const distanceFromCenterX = (clientX - centerX) / (rect.width / 2); // -1 to 1
     const distanceFromCenterY = (clientY - centerY) / (rect.height / 2); // -1 to 1
     // ...modulate amount of max rotation degrees we want
-    const deg = Math.abs(distanceFromCenterX) * MAX_HORIZONTAL_ROTATE_DEGS;
+    const yawDegrees =
+      Math.abs(distanceFromCenterX) * MAX_HORIZONTAL_ROTATE_DEGS;
+    const pitchDegrees =
+      MAX_VERTICAL_ROTATE_DEGS * Math.abs(distanceFromCenterY);
     // ...modulate amount of drop shadow
     const shadow = distanceFromCenterX * MAX_SHADOW_PX;
     const shadowBlur = Math.abs(distanceFromCenterX) * MAX_SHADOW_BLUR_PX;
 
     // Need to know which direction to rotate
-    const directionX = distanceFromCenterX < 0 ? -1 : 1;
-    const directionY = distanceFromCenterY < 0 ? 1 : -1;
+    const yawDirection = distanceFromCenterX < 0 ? -1 : 1;
+    const pitchDirection = distanceFromCenterY < 0 ? 1 : -1;
 
     ref.current.style.transform = `
-      rotate3d(0, ${directionX}, 0, ${deg}deg)
-      rotate3d(${directionY}, 0, 0, ${MAX_VERTICAL_ROTATE_DEGS * Math.abs(distanceFromCenterY)}deg)
+      rotate3d(0, ${yawDirection}, 0, ${yawDegrees}deg)
+      rotate3d(${pitchDirection}, 0, 0, ${pitchDegrees}deg)
     `;
     ref.current.style.boxShadow = `${shadow}px 0 ${shadowBlur}px var(--shadow)`;
   });
@@ -78,7 +64,7 @@ export function ThreeDCard({ children }: CardProps) {
   return (
     <div
       className={styles.threedcontainer}
-      onMouseMove={onMouseMove}
+      onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       <div ref={ref} className={styles.threedwrapper}>
