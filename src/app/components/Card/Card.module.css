@@ -19,6 +19,7 @@
 }
 
 .threedwrapper {
+  touch-action: none;
   transition:
     transform 250ms ease-out,
     box-shadow 250ms ease-out;
