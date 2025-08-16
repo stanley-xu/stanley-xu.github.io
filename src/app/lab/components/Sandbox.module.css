@@ -1,0 +1,19 @@
+.Sandbox {
+  padding: 0 var(--spacing);
+  min-height: 80vh;
+  box-shadow: inset 2px 1px 4px var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  flex: 1;
+  min-height: var(--spacing);
+}
