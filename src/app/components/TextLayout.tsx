@@ -1,11 +1,21 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
-export function TextLayout({ children }: { children: ReactNode }) {
+interface TextLayoutProps {
+  width?: "regular" | "tight";
+  textAlign?: CSSProperties["textAlign"];
+  children: ReactNode;
+}
+
+export function TextLayout({
+  width = "regular",
+  textAlign = "left",
+  children,
+}: TextLayoutProps) {
   return (
     <div
       style={{
-        maxWidth: "65ch",
-        lineHeight: 1.6,
+        textAlign,
+        maxWidth: width === "tight" ? "65ch" : undefined,
       }}
     >
       {children}

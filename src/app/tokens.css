@@ -6,6 +6,7 @@
   /* Measurements */
   --spacing-tight: 8px;
   --spacing: 16px;
+  --spacing-loose: 24px;
 
   /* Grayscale */
   --black: hsl(0, 0%, 25%);

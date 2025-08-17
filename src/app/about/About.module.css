@@ -1,0 +1,18 @@
+.wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.image {
+  max-width: 300px;
+  border-radius: 8px;
+  height: auto;
+}
+
+/* 412px chosen as it seems to be a common small phone width */
+@media (width <= 412px) {
+  .wrapper {
+    padding: revert;
+  }
+}
