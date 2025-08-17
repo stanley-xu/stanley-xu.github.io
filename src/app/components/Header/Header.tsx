@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Row justifyContent="space-between" alignItems="baseline">
+      <Row justifyContent="space-between" alignItems="center">
         <Breadcrumb>
           <BreadcrumbLink href={`/about`}>About</BreadcrumbLink>
           <BreadcrumbLink href={`/lab`}>Lab</BreadcrumbLink>
