@@ -11,6 +11,7 @@ import {
 import { THEME_KEY } from "./constants";
 
 const THEMES = ["system", "dark", "light"] as const;
+const DEFAULT_THEME = "system";
 type ThemeValue = "system" | "dark" | "light";
 
 type ThemeContextValue = {
@@ -43,16 +44,21 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       }
     };
 
+    onChange({ matches: mediaQueryList.matches } as MediaQueryListEvent);
+
     mediaQueryList.addEventListener("change", onChange);
     return () => mediaQueryList.removeEventListener("change", onChange);
   }, []);
 
-  // One-time read on client component mount
+  // [Read overrides] One-time read from local storage on client component mount
   useEffect(() => {
-    setTheme(localStorage.getItem(THEME_KEY) as ThemeValue);
+    const localStorageValue = localStorage.getItem(
+      THEME_KEY,
+    ) as ThemeValue | null;
+    setTheme(localStorageValue ?? DEFAULT_THEME);
   }, []);
 
-  // Sync localStorage to theme state
+  // [Write override] Sync override theme in localStorage to theme state
   useEffect(() => {
     if (theme == null) return;
     localStorage.setItem(THEME_KEY, theme);
