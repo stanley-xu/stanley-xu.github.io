@@ -56,17 +56,6 @@
   --tint-6: hsl(213.33,100%,94.71%);
 }
 
-:root[data-theme='dark'] {
-  --secondary: var(--brand-2-dark);
-  --tertiary: var(--brand-3-dark);
-  
-  --background: var(--shade-4);
-  --text: var(--dark-4);
-  --shadow: var(--shade-6);
-  --surface: var(--shade-3);
-  --accent: var(--dark-3);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --secondary: var(--brand-2-dark);
@@ -80,15 +69,15 @@
   }
 }
 
-:root[data-theme='light'] {
-  --secondary: var(--brand-2);
-  --tertiary: var(--brand-3);
+:root[data-theme='dark'] {
+  --secondary: var(--brand-2-dark);
+  --tertiary: var(--brand-3-dark);
   
-  --background: var(--light-4);
-  --text: var(--light-1);
-  --shadow: var(--light-1);
-  --surface: var(--light-3);
-  --accent: var(--shade-2);
+  --background: var(--shade-4);
+  --text: var(--dark-4);
+  --shadow: var(--shade-6);
+  --surface: var(--shade-3);
+  --accent: var(--dark-3);
 }
 
 @media (prefers-color-scheme: light) {
@@ -102,4 +91,15 @@
     --surface: var(--light-3);
     --accent: var(--shade-2);
   }
+}
+
+:root[data-theme='light'] {
+  --secondary: var(--brand-2);
+  --tertiary: var(--brand-3);
+  
+  --background: var(--light-4);
+  --text: var(--light-1);
+  --shadow: var(--light-1);
+  --surface: var(--light-3);
+  --accent: var(--shade-2);
 }

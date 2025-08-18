@@ -1,13 +1,23 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 import { App } from "./App";
-import { ThemeProvider } from "./ThemeProvider";
+
+import { Geist_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Stanley Xu",
   description: "My home page",
 };
+
+export const viewport: Viewport = {
+  colorScheme: "dark light",
+};
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
@@ -15,10 +25,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                const theme = localStorage.getItem('user_theme_preference');
+                if (theme && theme !== 'system') {
+                  document.documentElement.setAttribute('data-theme', theme);
+                }
+              `,
+          }}
+        />
+      </head>
+      <body className={`${geistMono.variable} antialiased`}>
         <App>{children}</App>
-      </ThemeProvider>
+      </body>
     </html>
   );
 }

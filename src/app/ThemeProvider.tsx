@@ -10,6 +10,10 @@ import {
 } from "react";
 import { THEME_KEY } from "./constants";
 
+/**
+ * Theme switching is possible between system -> dark -> light modes
+ * The default state is to use the system theme
+ */
 const THEMES = ["system", "dark", "light"] as const;
 const DEFAULT_THEME = "system";
 type ThemeValue = "system" | "dark" | "light";
@@ -22,7 +26,6 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Can't read localStorage until effect runs on client component mount
   const [theme, setTheme] = useState<ThemeValue | null>(null);
 
   const toggleTheme = useCallback(() => {
@@ -33,7 +36,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setTheme(nextTheme);
   }, [theme]);
 
-  // Sync theme state to preferred colour scheme
+  // Sync state (to initialize) from local storage on client component mount
+  useEffect(() => {
+    const localStorageValue = localStorage.getItem(
+      THEME_KEY,
+    ) as ThemeValue | null;
+    setTheme(localStorageValue ?? DEFAULT_THEME);
+  }, []);
+
+  // Register onChange that syncs theme state to changes in prefers-color-scheme
   useEffect(() => {
     const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = (ev: MediaQueryListEvent) => {
@@ -44,21 +55,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       }
     };
 
-    onChange({ matches: mediaQueryList.matches } as MediaQueryListEvent);
-
     mediaQueryList.addEventListener("change", onChange);
     return () => mediaQueryList.removeEventListener("change", onChange);
   }, []);
 
-  // [Read overrides] One-time read from local storage on client component mount
-  useEffect(() => {
-    const localStorageValue = localStorage.getItem(
-      THEME_KEY,
-    ) as ThemeValue | null;
-    setTheme(localStorageValue ?? DEFAULT_THEME);
-  }, []);
-
-  // [Write override] Sync override theme in localStorage to theme state
+  // Sync override theme in localStorage to theme state
   useEffect(() => {
     if (theme == null) return;
     localStorage.setItem(THEME_KEY, theme);
