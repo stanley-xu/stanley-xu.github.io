@@ -52,6 +52,10 @@ export function Sandbox() {
     ).getPropertyValue("--background");
 
     setBgColour(originalBgColour.current);
+
+    return () => {
+      document.documentElement.style.removeProperty("--background");
+    };
   }, []);
 
   const onToggle = (tileColour: string) => {
