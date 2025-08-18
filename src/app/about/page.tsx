@@ -20,8 +20,7 @@ export default function Page() {
             className={styles.image}
             src={profilePic}
             alt="Picture of the author"
-            blurDataURL="data:..." // automatically provided
-            placeholder="blur" // Optional blur-up while loading
+            placeholder="blur"
           />
           <TextLayout width="tight">
             <About />
